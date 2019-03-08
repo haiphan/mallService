@@ -1,12 +1,14 @@
 import { Router, Request, Response } from 'express';
 const router: Router = Router();
+
 router.get('/', (req: Request, res: Response) => {
-  res.send('Hello kittei!');
+  const stores = [{s1: 'store1'}, {s1: 'store1'}];
+  res.json(stores);
 });
 
-router.get('/:name', (req: Request, res: Response) => {
-  const { name } = req.params;
-  res.send(`Hello, ${name}`);
+router.get('/:id', (req: Request, res: Response) => {
+  const { id } = req.params;
+  res.send(`Hello, ${id}`);
 });
 
 router.post('/', (req: Request, res: Response) => {
@@ -15,4 +17,4 @@ router.post('/', (req: Request, res: Response) => {
   res.send({status: 'ok'});
 });
 
-export const HelloController: Router = router;
+export const StoreController: Router = router;
