@@ -1,20 +1,20 @@
 import { Router, Request, Response } from 'express';
+import {StoreInterface} from '../models/store'
 const router: Router = Router();
+const allStores: StoreInterface[] = require('./storeData');
 
 router.get('/', (req: Request, res: Response) => {
-  const stores = [{s1: 'store1'}, {s1: 'store1'}];
-  res.json(stores);
+  return res.json(allStores);
 });
 
 router.get('/:id', (req: Request, res: Response) => {
   const { id } = req.params;
-  res.send(`Hello, ${id}`);
-});
-
-router.post('/', (req: Request, res: Response) => {
-  const {name} = req.body;
-  console.log('nis', name);
-  res.send({status: 'ok'});
+  const store: StoreInterface|undefined = allStores.find(s => s.id === id);
+  if (!store) {
+    res.status(404);
+    return res.json({error: "Not found"});
+  }
+  res.json(store);
 });
 
 export const StoreController: Router = router;
