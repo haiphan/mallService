@@ -1,20 +1,20 @@
 import { Router, Request, Response } from 'express';
-import {StoreInterface} from '../models/store'
+import {OfferInterface} from '../models/offers'
 const router: Router = Router();
-import { storeData as allStores } from "./storeData";
+import { offerData as allOffers } from "./offerData";
 
 router.get('/', (req: Request, res: Response) => {
-  return res.json(allStores);
+  return res.json(allOffers);
 });
 
 router.get('/:id', (req: Request, res: Response) => {
   const { id } = req.params;
-  const store: StoreInterface|undefined = allStores.find(s => s.id === id);
-  if (!store) {
+  const offer: OfferInterface|undefined = allOffers.find(s => s.id === id);
+  if (!offer) {
     res.status(404);
     return res.json({error: "Not found"});
   }
-  res.json(store);
+  res.json(offer);
 });
 
-export const StoreController: Router = router;
+export const OfferController: Router = router;

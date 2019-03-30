@@ -1,4 +1,6 @@
-[{
+import {StoreInterface} from "../models/store";
+
+export const storeData: StoreInterface[] = [{
   "id": "1",
   "name": "KFC Inc",
   "logoURL": "logo.me/kcf.png",
@@ -20,4 +22,4 @@
   "phone": "4830924834",
   "mail": "info@kfc.com",
   "location": "D1"
-}]
+}];
