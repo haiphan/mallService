@@ -4,7 +4,7 @@ import {ShoppingCenterController, StoreController, OfferController} from './cont
 
 
 const {PORT} = process.env;
-const port: number = PORT ? Number(PORT) : 3000;
+const port: number = PORT ? Number(PORT) : 3456;
 const app: express.Application = express();
 
 const defaultErrHandler = (req: express.Request, res: express.Response) =>
