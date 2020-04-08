@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
+    "dev": "ts-node src/server",
     "start": "node dist/server"
   },
   "repository": {
